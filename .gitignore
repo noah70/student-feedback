@@ -6,7 +6,7 @@ node_modules/
 # Laravel 4 specific
 bootstrap/compiled.php
 /composer.phar
-/_ide_helper.php.txt
+/_ide_helper.php
 app/storage/
 
 # Laravel 5 & Lumen specific
