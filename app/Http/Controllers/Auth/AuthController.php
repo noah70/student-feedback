@@ -28,7 +28,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/admin';
 
     /**
      * Create a new authentication controller instance.
@@ -68,5 +68,20 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    /**
+     * Check if visitor is authorized to register a new admin.
+     * 
+     * @return mixed
+     */
+    public function showRegistrationForm()
+    {
+        if (count(User::all()) < config('site.adminLimit'))
+        {
+            return view('auth.register');
+        }
+
+        return response('', 403);
     }
 }

@@ -18,3 +18,11 @@ Route::group(['middleware' => ['web']], function () {
     });
 
 });
+
+Route::group(['middleware' => 'web'], function () {
+    Route::get('/teacher/{secretCode}', 'TeachersController@showModule');
+
+    Route::get('/admin', 'AdminController@index');
+
+    Route::auth();
+});

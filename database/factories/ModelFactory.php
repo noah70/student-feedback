@@ -19,3 +19,24 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+
+$factory->define(App\Models\Teachers::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'email' => $faker->safeEmail,
+        'secret_code' => str_random(10),
+    ];
+});
+
+$factory->define(App\Models\Modules::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'code' => $faker->randomDigitNotNull,
+        'teacher_id' => $faker->numberBetween(0, 100),
+        'semester' => $faker->year,
+        'year' => $faker->year,
+        'type' => $faker->word,
+        'secret_code' => str_random(10),
+    ];
+});
