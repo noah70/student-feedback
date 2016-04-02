@@ -47,7 +47,10 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+                    @if (Auth::user())
+                        <li><a href="{{ url('/home') }}">Admin area</a></li>
+                    @else
+                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
