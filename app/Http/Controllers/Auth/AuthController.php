@@ -69,4 +69,19 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    /**
+     * Check if visitor is authorized to register a new admin.
+     * 
+     * @return mixed
+     */
+    public function showRegistrationForm()
+    {
+        if (count(User::all()) < config('site.adminLimit'))
+        {
+            return view('auth.register');
+        }
+
+        return response('', 403);
+    }
 }
