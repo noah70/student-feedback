@@ -48,7 +48,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     @if (Auth::user())
-                        <li><a href="{{ url('/home') }}">Admin area</a></li>
+                        <li><a href="{{ url('/admin') }}">Admin area</a></li>
                     @else
                     @endif
                 </ul>
